@@ -98,4 +98,4 @@ This project builds to static files, which works with GoDaddy's shared hosting (
 3. Overwrite existing files when prompted so old builds don't linger.
 4. Verify the site by visiting your domain once the upload completes.
 
-[Back to Top](#True Image Enterprises)
+[Back to Top](#true-image-enterprises)
