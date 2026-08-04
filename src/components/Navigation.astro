@@ -1,52 +1,345 @@
 ---
+import { Image as LogoImage } from "astro:assets";
+import trueImageLogo from "../assets/logo_V1.webp";
+
 const menulinks = [
-  { href: "/", text: "Home" },
   { href: "/about", text: "Our Team" },
   {
     href: "https://www.basstacklemaster.com/SearchResults.asp?Search=True+Image",
     text: "Bait Store",
     target: "_blank",
   },
-  { href: "/contact", text: "Contact Us", class: "text-blue-600" },
+  { href: "/contact", text: "Contact Us", class: "text-blue-400" },
+];
+
+const submenulinks = [
+  {
+    href: "https://americanbass.com/",
+    label: "American Bass",
+    target: "_blank",
+  },
+  {
+    href: "https://www.bassmaster.com/",
+    label: "Bassmaster",
+    target: "_blank",
+  },
+  {
+    href: "https://www.bassresource.com/",
+    label: "Bass Resource - Fishing Guide",
+    target: "_blank",
+  },
+  {
+    href: "https://majorleaguefishing.com/",
+    label: "Major League Fishing",
+    target: "_blank",
+  },
+  {
+    href: "https://gamakatsu.com/",
+    label: "Gamakatsu Hooks",
+    target: "_blank",
+  },
+  {
+    href: "https://www.ownerhooks.com/",
+    label: "Owner Hooks",
+    target: "_blank",
+  },
+  {
+    href: "https://www.tacklewarehouse.com/",
+    label: "Tackle Warehouse",
+    target: "_blank",
+  },
+  {
+    href: "https://tearshot.com/",
+    label: "Team Davies Tackles",
+    target: "_blank",
+  },
+  {
+    href: "https://wonbassevents.com/",
+    label: "Won Bass Events",
+    target: "_blank",
+  },
 ];
 ---
 
-<nav class="flex items-center gap-6 p-4 text-lg font-medium">
-  <div class="navbar-brand">
-    <a href="/" class="flex items-center gap-2">
-      <img
-        title="TI-Enterprise"
-        src="/logo/logo.png"
+<nav id="site-nav" class="relative bg-gray-800 text-stone-100">
+  <div class="mx-auto flex items-center gap-4 p-4 text-lg font-medium">
+    <a
+      href="/"
+      class="relative flex items-center gap-2 rounded-md px-2 py-1 transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-white after:transition-transform after:duration-200 hover:bg-white/10 hover:text-white hover:after:scale-x-100"
+    >
+      <LogoImage
+        src={trueImageLogo}
         alt="TI-Enterprise.png"
+        title="TI-Enterprise"
         class="h-8 w-auto"
+        loading="eager"
       />
       True Image
     </a>
+
+    <button
+      id="mobile-menu-btn"
+      class="ml-auto inline-flex items-center justify-center rounded-md p-2 transition-colors hover:bg-white/10 md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle menu"
+    >
+      <span id="mobile-menu-icon" class="text-xl leading-none">☰</span>
+    </button>
+
+    <div class="ml-auto hidden items-center gap-6 md:flex">
+      {
+        menulinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.target}
+            class={`relative rounded-md px-2 py-1 transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-white after:transition-transform after:duration-200 hover:bg-white/10 hover:text-white hover:after:scale-x-100 ${link.class ?? ""}`}
+          >
+            {link.text}
+          </a>
+        ))
+      }
+
+      <div class="relative flex flex-col items-start">
+        <button
+          id="collapse-btn"
+          class="relative flex items-center gap-2 rounded-md px-2 py-1 font-medium transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-white after:transition-transform after:duration-200 hover:bg-white/10 hover:text-white hover:after:scale-x-100"
+          aria-expanded="false"
+        >
+          Resources
+          <span id="arrow" class="transition-transform duration-200">▼</span>
+        </button>
+
+        <div
+          id="collapse-content"
+          class="pointer-events-none absolute top-full right-0 z-50 mt-2 flex min-w-64 origin-top-right -translate-y-1 scale-95 flex-col gap-2 rounded-md bg-gray-600 p-3 opacity-0 shadow-lg transition-all duration-200 ease-out motion-reduce:transition-none"
+        >
+          {
+            submenulinks.map((item) => (
+              <a
+                href={item.href}
+                target={item.target}
+                class="-mx-1 block rounded-md border-b border-white/25 px-2 py-2 whitespace-nowrap transition-all duration-200 last:border-b-0 hover:bg-white/10 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="ml-auto flex items-center gap-6">
-    {
-      menulinks.map((link) => (
-        <a href={link.href} target={link.target} class={link.class}>
-          {link.text}
-        </a>
-      ))
-    }
+
+  <div
+    id="mobile-menu"
+    class="pointer-events-none max-h-0 overflow-hidden border-t border-white/15 px-4 opacity-0 transition-all duration-200 ease-out motion-reduce:transition-none md:hidden"
+  >
+    <div class="flex flex-col gap-2 pt-3 pb-4 text-base">
+      {
+        menulinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.target}
+            class={`block rounded-md px-3 py-2 transition-colors hover:bg-white/10 hover:text-white ${link.class ?? ""}`}
+          >
+            {link.text}
+          </a>
+        ))
+      }
+
+      <div class="flex flex-col">
+        <button
+          id="mobile-resources-btn"
+          class="flex items-center justify-between rounded-md px-3 py-2 text-left transition-colors hover:bg-white/10"
+          aria-expanded="false"
+        >
+          <span>Resources</span>
+          <span id="mobile-arrow" class="transition-transform duration-200"
+            >▼</span
+          >
+        </button>
+
+        <div
+          id="mobile-resources-content"
+          class="pointer-events-none flex max-h-0 flex-col overflow-hidden pl-3 opacity-0 transition-all duration-200 ease-out motion-reduce:transition-none"
+        >
+          {
+            submenulinks.map((item) => (
+              <a
+                href={item.href}
+                target={item.target}
+                class="block rounded-md border-b border-white/20 px-3 py-2 text-sm transition-colors last:border-b-0 hover:bg-white/10 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
   </div>
 </nav>
 
-<style>
-  .navbar-brand {
-    display: inline-block;
-    padding-top: 0.32rem;
-    padding-bottom: 0.32rem;
-    margin-right: 1rem;
-    font-size: 1.125rem;
-    line-height: inherit;
-    white-space: nowrap;
+<script>
+  const navRoot = document.getElementById("site-nav");
+
+  const setExpandedState = (
+    el: Element,
+    shouldOpen: boolean,
+    openClasses: string[],
+    closedClasses: string[],
+  ) => {
+    el.classList.remove(...(shouldOpen ? closedClasses : openClasses));
+    el.classList.add(...(shouldOpen ? openClasses : closedClasses));
+  };
+
+  const desktopOpenClasses = [
+    "opacity-100",
+    "translate-y-0",
+    "scale-100",
+    "pointer-events-auto",
+  ];
+  const desktopClosedClasses = [
+    "opacity-0",
+    "-translate-y-1",
+    "scale-95",
+    "pointer-events-none",
+  ];
+
+  const mobileMenuOpenClasses = [
+    "max-h-[80vh]",
+    "opacity-100",
+    "pointer-events-auto",
+  ];
+  const mobileMenuClosedClasses = [
+    "max-h-0",
+    "opacity-0",
+    "pointer-events-none",
+  ];
+
+  const mobileResourcesOpenClasses = [
+    "max-h-[70vh]",
+    "opacity-100",
+    "pointer-events-auto",
+  ];
+  const mobileResourcesClosedClasses = [
+    "max-h-0",
+    "opacity-0",
+    "pointer-events-none",
+  ];
+
+  const btn = document.getElementById("collapse-btn");
+  const content = document.getElementById("collapse-content");
+  const arrow = document.getElementById("arrow");
+
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+  const mobileResourcesBtn = document.getElementById("mobile-resources-btn");
+  const mobileResourcesContent = document.getElementById(
+    "mobile-resources-content",
+  );
+  const mobileArrow = document.getElementById("mobile-arrow");
+
+  if (btn && content && arrow) {
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      const shouldOpen = !expanded;
+      btn.setAttribute("aria-expanded", String(shouldOpen));
+
+      setExpandedState(
+        content,
+        shouldOpen,
+        desktopOpenClasses,
+        desktopClosedClasses,
+      );
+      arrow.classList.toggle("rotate-180", shouldOpen);
+    });
+
+    // Click outside to close desktop dropdown
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Node)) return;
+
+      if (!btn.contains(target) && !content.contains(target)) {
+        setExpandedState(
+          content,
+          false,
+          desktopOpenClasses,
+          desktopClosedClasses,
+        );
+        btn.setAttribute("aria-expanded", "false");
+        arrow.classList.remove("rotate-180");
+      }
+    });
   }
 
-  .navbar-brand:hover,
-  .navbar-brand:focus {
-    text-decoration: none;
+  if (mobileMenuBtn && mobileMenu && mobileMenuIcon) {
+    mobileMenuBtn.addEventListener("click", () => {
+      const expanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+      const shouldOpen = !expanded;
+      mobileMenuBtn.setAttribute("aria-expanded", String(shouldOpen));
+
+      setExpandedState(
+        mobileMenu,
+        shouldOpen,
+        mobileMenuOpenClasses,
+        mobileMenuClosedClasses,
+      );
+      mobileMenuIcon.textContent = shouldOpen ? "✕" : "☰";
+    });
   }
-</style>
+
+  if (mobileResourcesBtn && mobileResourcesContent && mobileArrow) {
+    mobileResourcesBtn.addEventListener("click", () => {
+      const expanded =
+        mobileResourcesBtn.getAttribute("aria-expanded") === "true";
+      const shouldOpen = !expanded;
+      mobileResourcesBtn.setAttribute("aria-expanded", String(shouldOpen));
+
+      setExpandedState(
+        mobileResourcesContent,
+        shouldOpen,
+        mobileResourcesOpenClasses,
+        mobileResourcesClosedClasses,
+      );
+      mobileArrow.classList.toggle("rotate-180", shouldOpen);
+    });
+  }
+
+  if (
+    navRoot &&
+    mobileMenuBtn &&
+    mobileMenu &&
+    mobileMenuIcon &&
+    mobileResourcesBtn &&
+    mobileResourcesContent &&
+    mobileArrow
+  ) {
+    // Click outside to close mobile menu and mobile resources accordion
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Node)) return;
+
+      if (!navRoot.contains(target)) {
+        setExpandedState(
+          mobileMenu,
+          false,
+          mobileMenuOpenClasses,
+          mobileMenuClosedClasses,
+        );
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileMenuIcon.textContent = "☰";
+
+        setExpandedState(
+          mobileResourcesContent,
+          false,
+          mobileResourcesOpenClasses,
+          mobileResourcesClosedClasses,
+        );
+        mobileResourcesBtn.setAttribute("aria-expanded", "false");
+        mobileArrow.classList.remove("rotate-180");
+      }
+    });
+  }
+</script>
