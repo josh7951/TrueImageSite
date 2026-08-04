@@ -1,0 +1,52 @@
+---
+const menulinks = [
+  { href: "/", text: "Home" },
+  { href: "/about", text: "Our Team" },
+  {
+    href: "https://www.basstacklemaster.com/SearchResults.asp?Search=True+Image",
+    text: "Bait Store",
+    target: "_blank",
+  },
+  { href: "/contact", text: "Contact Us", class: "text-blue-600" },
+];
+---
+
+<nav class="flex items-center gap-6 p-4 text-lg font-medium">
+  <div class="navbar-brand">
+    <a href="/" class="flex items-center gap-2">
+      <img
+        title="TI-Enterprise"
+        src="/logo/logo.png"
+        alt="TI-Enterprise.png"
+        class="h-8 w-auto"
+      />
+      True Image
+    </a>
+  </div>
+  <div class="ml-auto flex items-center gap-6">
+    {
+      menulinks.map((link) => (
+        <a href={link.href} target={link.target} class={link.class}>
+          {link.text}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<style>
+  .navbar-brand {
+    display: inline-block;
+    padding-top: 0.32rem;
+    padding-bottom: 0.32rem;
+    margin-right: 1rem;
+    font-size: 1.125rem;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+
+  .navbar-brand:hover,
+  .navbar-brand:focus {
+    text-decoration: none;
+  }
+</style>
