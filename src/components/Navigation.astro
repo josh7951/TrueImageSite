@@ -1,6 +1,6 @@
 ---
 import { Image as LogoImage } from "astro:assets";
-import trueImageLogo from "../assets/logo_V1.webp";
+import trueImageLogo from "../assets/logo_V1.png";
 
 const menulinks = [
   { href: "/about", text: "Our Team" },
@@ -9,7 +9,7 @@ const menulinks = [
     text: "Bait Store",
     target: "_blank",
   },
-  { href: "/contact", text: "Contact Us", class: "text-blue-400" },
+  { href: "/contact", text: "Contact Us", class: "text-cyan-300" },
 ];
 
 const submenulinks = [
@@ -61,25 +61,31 @@ const submenulinks = [
 ];
 ---
 
-<nav id="site-nav" class="relative bg-gray-800 text-stone-100">
+<nav
+  id="site-nav"
+  class="relative border-b border-white/10 bg-[#222a33] text-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.24)]"
+>
   <div class="mx-auto flex items-center gap-4 p-4 text-lg font-medium">
     <a
       href="/"
-      class="relative flex items-center gap-2 rounded-md px-2 py-1 transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-white after:transition-transform after:duration-200 hover:bg-white/10 hover:text-white hover:after:scale-x-100"
+      class="relative flex items-center gap-2 rounded-lg border border-cyan-200/30 bg-linear-to-r from-cyan-300/20 to-white/[0.04] px-2.5 py-1.5 text-white shadow-[0_0_0_1px_rgba(34,211,238,0.14)] transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-cyan-200 after:transition-transform after:duration-200 hover:from-cyan-300/28 hover:to-white/[0.09] hover:text-white hover:after:scale-x-100"
     >
       <LogoImage
         src={trueImageLogo}
         alt="TI-Enterprise.png"
         title="TI-Enterprise"
-        class="h-8 w-auto"
+        class="h-10 w-auto rounded-md bg-white/90 p-1 shadow-[0_4px_10px_rgba(0,0,0,0.28)] ring-1 ring-white/60"
         loading="eager"
       />
-      True Image
+      <span class="font-semibold tracking-tight">True Image</span>
+      <span class="text-[0.65rem] tracking-[0.14em] text-cyan-100/95 uppercase"
+        >Home</span
+      >
     </a>
 
     <button
       id="mobile-menu-btn"
-      class="ml-auto inline-flex items-center justify-center rounded-md p-2 transition-colors hover:bg-white/10 md:hidden"
+      class="ml-auto inline-flex items-center justify-center rounded-md border border-white/15 bg-white/[0.04] p-2 transition-colors hover:bg-white/12 md:hidden"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Toggle menu"
@@ -93,7 +99,7 @@ const submenulinks = [
           <a
             href={link.href}
             target={link.target}
-            class={`relative rounded-md px-2 py-1 transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-white after:transition-transform after:duration-200 hover:bg-white/10 hover:text-white hover:after:scale-x-100 ${link.class ?? ""}`}
+            class={`relative rounded-md px-2 py-1 transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-cyan-300 after:transition-transform after:duration-200 hover:bg-white/12 hover:text-white hover:after:scale-x-100 ${link.class ?? ""}`}
           >
             {link.text}
           </a>
@@ -103,7 +109,7 @@ const submenulinks = [
       <div class="relative flex flex-col items-start">
         <button
           id="collapse-btn"
-          class="relative flex items-center gap-2 rounded-md px-2 py-1 font-medium transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-white after:transition-transform after:duration-200 hover:bg-white/10 hover:text-white hover:after:scale-x-100"
+          class="relative flex items-center gap-2 rounded-md px-2 py-1 font-medium transition-all duration-200 after:absolute after:right-2 after:-bottom-0.5 after:left-2 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-cyan-300 after:transition-transform after:duration-200 hover:bg-white/12 hover:text-white hover:after:scale-x-100"
           aria-expanded="false"
         >
           Resources
@@ -112,14 +118,14 @@ const submenulinks = [
 
         <div
           id="collapse-content"
-          class="pointer-events-none absolute top-full right-0 z-50 mt-2 flex min-w-64 origin-top-right -translate-y-1 scale-95 flex-col gap-2 rounded-md bg-gray-600 p-3 opacity-0 shadow-lg transition-all duration-200 ease-out motion-reduce:transition-none"
+          class="pointer-events-none absolute top-full right-0 z-50 mt-2 flex min-w-64 origin-top-right -translate-y-1 scale-95 flex-col gap-2 rounded-md border border-white/10 bg-[#2b3542] p-3 opacity-0 shadow-[0_12px_24px_rgba(0,0,0,0.28)] transition-all duration-200 ease-out motion-reduce:transition-none"
         >
           {
             submenulinks.map((item) => (
               <a
                 href={item.href}
                 target={item.target}
-                class="-mx-1 block rounded-md border-b border-white/25 px-2 py-2 whitespace-nowrap transition-all duration-200 last:border-b-0 hover:bg-white/10 hover:text-white"
+                class="-mx-1 block rounded-md border-b border-white/20 px-2 py-2 whitespace-nowrap transition-all duration-200 last:border-b-0 hover:bg-white/12 hover:text-white"
               >
                 {item.label}
               </a>
@@ -132,7 +138,7 @@ const submenulinks = [
 
   <div
     id="mobile-menu"
-    class="pointer-events-none max-h-0 overflow-hidden border-t border-white/15 px-4 opacity-0 transition-all duration-200 ease-out motion-reduce:transition-none md:hidden"
+    class="pointer-events-none max-h-0 border-t border-white/15 bg-[#1f2934] px-4 opacity-0 transition-all duration-200 ease-out motion-reduce:transition-none md:hidden"
   >
     <div class="flex flex-col gap-2 pt-3 pb-4 text-base">
       {
@@ -140,7 +146,7 @@ const submenulinks = [
           <a
             href={link.href}
             target={link.target}
-            class={`block rounded-md px-3 py-2 transition-colors hover:bg-white/10 hover:text-white ${link.class ?? ""}`}
+            class={`block rounded-md px-3 py-2 transition-colors hover:bg-white/12 hover:text-white ${link.class ?? ""}`}
           >
             {link.text}
           </a>
@@ -150,7 +156,7 @@ const submenulinks = [
       <div class="flex flex-col">
         <button
           id="mobile-resources-btn"
-          class="flex items-center justify-between rounded-md px-3 py-2 text-left transition-colors hover:bg-white/10"
+          class="flex items-center justify-between rounded-md px-3 py-2 text-left transition-colors hover:bg-white/12"
           aria-expanded="false"
         >
           <span>Resources</span>
@@ -161,14 +167,14 @@ const submenulinks = [
 
         <div
           id="mobile-resources-content"
-          class="pointer-events-none flex max-h-0 flex-col overflow-hidden pl-3 opacity-0 transition-all duration-200 ease-out motion-reduce:transition-none"
+          class="pointer-events-none relative flex max-h-0 flex-col pl-3 opacity-0 transition-all duration-200 ease-out after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-6 after:bg-gradient-to-t after:from-[#1f2934] after:to-transparent motion-reduce:transition-none"
         >
           {
             submenulinks.map((item) => (
               <a
                 href={item.href}
                 target={item.target}
-                class="block rounded-md border-b border-white/20 px-3 py-2 text-sm transition-colors last:border-b-0 hover:bg-white/10 hover:text-white"
+                class="block rounded-md border-b border-white/20 px-3 py-2 text-sm transition-colors last:border-b-0 hover:bg-white/12 hover:text-white"
               >
                 {item.label}
               </a>
@@ -207,25 +213,29 @@ const submenulinks = [
   ];
 
   const mobileMenuOpenClasses = [
-    "max-h-[80vh]",
+    "max-h-[calc(100vh-5rem)]",
     "opacity-100",
     "pointer-events-auto",
+    "overflow-y-auto",
   ];
   const mobileMenuClosedClasses = [
     "max-h-0",
     "opacity-0",
     "pointer-events-none",
+    "overflow-hidden",
   ];
 
   const mobileResourcesOpenClasses = [
-    "max-h-[70vh]",
+    "max-h-[50vh]",
     "opacity-100",
     "pointer-events-auto",
+    "overflow-y-auto",
   ];
   const mobileResourcesClosedClasses = [
     "max-h-0",
     "opacity-0",
     "pointer-events-none",
+    "overflow-hidden",
   ];
 
   const btn = document.getElementById("collapse-btn");

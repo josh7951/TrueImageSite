@@ -1,0 +1,54 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="border-t border-white/10 bg-[#1a212a] py-14 text-neutral-400 sm:py-16"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      class="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center"
+      aria-labelledby="footer-contact-heading"
+    >
+      <p class="text-[0.65rem] tracking-[0.18em] text-neutral-500 uppercase">
+        Get in touch
+      </p>
+      <h2
+        id="footer-contact-heading"
+        class="text-base font-semibold tracking-tight text-neutral-100 sm:text-lg"
+      >
+        Our Contact Details
+      </h2>
+      <address
+        class="space-y-2 text-sm leading-relaxed text-neutral-300 not-italic"
+      >
+        <p>2851 West Avenue L, Suite 169, Lancaster, CA 93536</p>
+        <p>
+          <span class="sr-only">Phone:</span>
+          <a
+            href="tel:+17603821022"
+            class="underline decoration-cyan-800/60 underline-offset-4 transition-colors hover:text-neutral-100 hover:decoration-cyan-300"
+            >(760) 382-1022</a
+          >
+        </p>
+        <p>
+          <span class="sr-only">Email:</span>
+          <a
+            href="mailto:orders@ti-enterpise.com"
+            class="underline decoration-cyan-800/60 underline-offset-4 transition-colors hover:text-neutral-100 hover:decoration-cyan-300"
+            >orders@ti-enterpise.com</a
+          >
+        </p>
+      </address>
+    </section>
+
+    <!-- Bottom Bar -->
+    <div
+      class="mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-[0.7rem] tracking-wide text-neutral-500 sm:text-xs"
+    >
+      <p>
+        Copyright &copy; {currentYear} - All rights reserved - TI-Enterpise.com
+      </p>
+    </div>
+  </div>
+</footer>

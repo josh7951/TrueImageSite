@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -14,28 +15,13 @@ import Navigation from "../components/Navigation.astro";
     <meta name="generator" content={Astro.generator} />
     <title>TI-Enterprise</title>
   </head>
-  <body>
+  <body
+    class="flex min-h-screen flex-col bg-gradient-to-b from-slate-300 via-slate-200 to-zinc-300 font-sans text-slate-900 antialiased"
+  >
     <Navigation />
-    <slot />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
-
-<style>
-  html {
-    box-sizing: border-box;
-    font-size: 16px; /* establishes rem baseline */
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: system-ui, sans-serif;
-    line-height: 1.5;
-  }
-</style>
