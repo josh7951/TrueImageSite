@@ -1,223 +1,338 @@
 ---
-import astroLogo from "../assets/astro.svg";
-import background from "../assets/background.svg";
+import { Image } from "astro:assets";
+import bassFishing from "../assets/Home/bass-fishing.jpg";
+import wesleyBurnett from "../assets/Home/wesley-burnett.jpg";
+import oneBassOriginal from "../assets/Home/1-bassoriginal.jpg";
+import gabrielDiaz from "../assets/Home/gabriel-diaz.jpg";
+import gregoryHalliman from "../assets/Home/gregory-halliman.jpg";
+import brianNunn from "../assets/Home/brian-nunn2.jpg";
+import melvinWilliams from "../assets/Home/melvin-williams.jpg";
+import chrisGarcia from "../assets/Home/chris-garcia.jpg";
+import christopherDixon from "../assets/Home/christopher-dixon.jpg";
+import logoMain from "../assets/logo-main.png";
+
+const articles = [
+  {
+    title: "Finding Your Secret Spot",
+    teaser:
+      "Every bass fisherman dreams of finding a secret spot loaded with fish and low pressure.",
+    image: bassFishing,
+    imageAlt: "Bass fishing on a quiet lake",
+    body: [
+      "Start by researching public lands managed by city, county, state, and federal agencies.",
+      "Use satellite maps to identify hidden ponds, access points, and likely cover before your first trip.",
+      "Keep tackle simple on day one, then adapt your setup as you learn the water.",
+    ],
+  },
+  {
+    title: "What Makes a Pro Bass Fisherman?",
+    teaser:
+      "Wesley Burnett shows how planning, discipline, and tournament experience build long-term success.",
+    image: wesleyBurnett,
+    imageAlt: "Wesley Burnett",
+    body: [
+      "Burnett advanced from local events to major tournament trails through steady improvement.",
+      "He learned from every stage and used each season to sharpen decision making on the water.",
+      "A structured approach and patience were key to his rise through the ranks.",
+    ],
+  },
+  {
+    title: "Keep It Simple",
+    teaser:
+      "For new anglers, simpler gear choices can reduce costs and speed up the learning curve.",
+    image: oneBassOriginal,
+    imageAlt: "Large bass held over water",
+    body: [
+      "A versatile rod, balanced reel ratio, and practical line setup can cover most situations.",
+      "Focus on a small set of productive bait colors matched to water clarity and conditions.",
+      "Master the basics first, then expand techniques and tackle as confidence grows.",
+    ],
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Gabriel Diaz",
+    photo: gabrielDiaz,
+    teaser: "",
+    body: [""],
+  },
+  {
+    name: "Gregory Halliman",
+    photo: gregoryHalliman,
+    teaser:
+      "Professional tournament angler with deep Western circuit experience since 1989.",
+    body: [
+      "Gregory has fished FLW Outdoors, B.A.S.S., W.O.N. Bass, and team tournaments, including the FLW Rayovac Series.",
+      "He has earned Big Fish awards across major Western divisions and qualified for the FLW EverStart Championship in 2005 and 2013. He also owns and operates a management retail consulting business and works in the motion picture industry as an actor.",
+    ],
+  },
+  {
+    name: "Brian Nunn",
+    photo: brianNunn,
+    teaser:
+      "Accomplished ABA competitor with proven championship-level consistency.",
+    body: [
+      "Brian Nunn was the 2006 A.B.A. Angler of the Year and is a multi-time A.B.A. Championship qualifier at Lake Mead.",
+      "He is known for staying versatile and competitive across changing conditions.",
+    ],
+  },
+  {
+    name: "Melvin (Mel) Williams",
+    photo: melvinWilliams,
+    teaser: "Veteran tournament angler competing at a high level since 1987.",
+    body: [
+      "Mel has competed in circuits including W.O.N. Bass, American Bass, National Bass West, California Bass Federation, FLW Stren, and FLW Rayovac, with highlights such as the W.O.N. US Open and Clear Lake Open.",
+      "He qualified for the American Bass, W.O.N., and National Bass West Classics, was a 2007 National Guard FLW qualifier, ranked No. 5 in the 2015 SD Fish power rankings, and placed 5th overall in 2015 California Bass Federation Region 6. He previously worked 18 years at the San Diego Zoo and currently works at UPS.",
+    ],
+  },
+  {
+    name: "Chris Garcia",
+    photo: chrisGarcia,
+    teaser:
+      "Competitive angler with strong championship qualifications and trophy fish history.",
+    body: [
+      "Chris has fished for over 20 years and began competing in recent seasons, qualifying through The Bass Federation for national championships at Lake Havasu (2014) and Lake Shasta (2015).",
+      "He also qualified for the 2015 National Bass Championship at Lake Havasu and landed standout California Delta largemouth at 14.2 and 10.3 pounds.",
+    ],
+  },
+  {
+    name: "Christopher Dixon",
+    photo: christopherDixon,
+    teaser:
+      "Experienced FLW co-angler who has transitioned to fishing from the front deck.",
+    body: [
+      "Christopher spent eight years as an FLW co-angler, earning top-10 finishes, championship success in the East-West Fish Off, and feature coverage in FLW Magazine.",
+      "He has competed in W.O.N. Bass, Anglers Choice, Future Pro Tour, U.S. Open, Lucas Oil, The Federation, and National Bass, and has multiple first- and second-place trophies. He now competes from the front of the boat in a 2015 Ranger Z520C.",
+    ],
+  },
+];
 ---
 
-<div id="container">
-  <img id="background" src={background.src} alt="" fetchpriority="high" />
-  <main>
-    <section id="hero">
-      <a href="https://astro.build"
-        ><img
-          src={astroLogo.src}
-          width="115"
-          height="48"
-          alt="Astro Homepage"
-        /></a
-      >
-      <h1>
-        To get started, open the <code><pre>src/pages</pre></code> directory in your
-        project.
-      </h1>
-      <section id="links">
-        <a class="button" href="https://docs.astro.build">Read our docs</a>
-        <a href="https://astro.build/chat"
-          >Join our Discord <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 127.14 96.36"
-            ><path
-              fill="currentColor"
-              d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-            ></path></svg
-          >
-        </a>
-      </section>
-    </section>
-  </main>
-
-  <a href="https://astro.build/blog/astro-6-beta/" id="news" class="box">
-    <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-      ><path
-        d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-        fill="#111827"></path></svg
-    >
-    <h2>What's New in Astro 6.0?</h2>
-    <p>
-      Redesigned dev server, fonts, live collections, built-in CSP support, and
-      more! Click to explore Astro 6.0's new features.
-    </p>
-  </a>
-  <div class="text-center text-3xl font-bold text-blue-600">
-    Fishing Team Website
+<section class="relative overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,116,144,0.16),transparent_45%),radial-gradient(circle_at_bottom_right,rgba(30,41,59,0.12),transparent_38%)]"
+  >
   </div>
-</div>
 
-<style>
-  #background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    filter: blur(100px);
-  }
+  <div
+    class="relative mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 pt-0 pb-8 sm:px-6 sm:pt-0 sm:pb-12 lg:gap-12 lg:px-8 lg:pt-0 lg:pb-14"
+  >
+    <header
+      class="relative right-1/2 left-1/2 -mx-[50vw] w-screen overflow-hidden border-b border-white/25 bg-[linear-gradient(135deg,#0f172a_0%,#1e293b_38%,#155e75_100%)] py-8 shadow-xl shadow-slate-900/10 sm:py-10 lg:py-12"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(103,232,249,0.22),transparent_44%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.12),transparent_36%)]"
+      >
+      </div>
 
-  #container {
-    font-family:
-      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
-      sans-serif;
-    height: 100%;
-  }
+      <div
+        class="relative z-10 mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8"
+      >
+        <Image
+          src={logoMain}
+          alt="Tournament Proven Finesse Baits"
+          class="h-auto w-full max-w-4xl object-contain"
+          widths={[640, 960, 1280, 1600]}
+          sizes="(min-width: 1024px) 64rem, 100vw"
+          loading="eager"
+          format="webp"
+        />
+      </div>
+    </header>
 
-  main {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
+    <section
+      class="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+      aria-label="Featured articles"
+    >
+      {
+        articles.map((article) => (
+          <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white/90 shadow-lg shadow-slate-900/5 backdrop-blur">
+            <Image
+              src={article.image}
+              alt={article.imageAlt}
+              class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+              widths={[480, 720, 960]}
+              sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+              loading="eager"
+              format="webp"
+            />
+            <div class="flex flex-1 flex-col p-5">
+              <h2 class="text-xl font-bold tracking-tight text-slate-900">
+                {article.title}
+              </h2>
+              <p class="mt-3 text-sm leading-6 text-slate-700">
+                {article.teaser}
+              </p>
 
-  #hero {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    justify-content: center;
-    padding: 16px;
-  }
+              <details
+                data-autocollapse-details
+                class="mt-4 rounded-xl bg-slate-50 p-3 open:bg-cyan-50/70"
+              >
+                <summary class="cursor-pointer text-sm font-semibold text-cyan-800 marker:text-cyan-700">
+                  Read more
+                </summary>
+                <div class="mt-3 space-y-3 text-sm leading-6 text-slate-700">
+                  {article.body.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+              </details>
+            </div>
+          </article>
+        ))
+      }
+    </section>
 
-  h1 {
-    font-size: 22px;
-    margin-top: 0.25em;
-  }
+    <section
+      class="grid gap-6 lg:grid-cols-[1.2fr_1fr]"
+      aria-label="Store and owner highlights"
+    >
+      <article
+        class="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-lg shadow-slate-900/5 backdrop-blur sm:p-8"
+      >
+        <div class="flex items-start gap-4">
+          <div class="space-y-3">
+            <h2 class="text-2xl font-black tracking-tight text-slate-900">
+              Visit The Bait Store
+            </h2>
+            <p class="text-sm leading-7 text-slate-700 sm:text-base">
+              True Image worms are built for action, durability, and confidence.
+              Explore advanced color patterns, scents, and styles designed for
+              multiple bass fishing techniques.
+            </p>
+            <a
+              href="https://www.basstacklemaster.com/SearchResults.asp?Search=True+Image"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center rounded-lg border border-cyan-300/70 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-900 transition hover:bg-cyan-100"
+            >
+              Open Bait Store
+            </a>
+          </div>
+        </div>
+      </article>
 
-  #links {
-    display: flex;
-    gap: 16px;
-  }
+      <article
+        class="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-lg shadow-slate-900/5 backdrop-blur sm:p-8"
+      >
+        <div class="space-y-3">
+          <p
+            class="text-xs font-semibold tracking-[0.16em] text-cyan-700 uppercase"
+          >
+            Message From Ray
+          </p>
+          <h2 class="text-2xl font-black tracking-tight text-slate-900">
+            A Lifetime Around The Water
+          </h2>
+          <p class="text-sm leading-7 text-slate-700 sm:text-base">
+            From Texas roots to tournament lessons in the West, Ray continues to
+            share practical bass fishing knowledge through True Image products
+            and community.
+          </p>
+          <a
+            href="/about"
+            class="inline-flex items-center rounded-lg border border-cyan-300/70 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-900 transition hover:bg-cyan-100"
+          >
+            Read Ray's Story
+          </a>
+        </div>
+      </article>
+    </section>
 
-  #links a {
-    display: flex;
-    align-items: center;
-    padding: 10px 12px;
-    color: #111827;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+    <section
+      class="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-lg shadow-slate-900/5 backdrop-blur sm:p-8"
+      aria-labelledby="team-heading"
+    >
+      <div class="mb-5 space-y-1 sm:mb-6">
+        <p
+          class="text-xs font-semibold tracking-[0.16em] text-cyan-700 uppercase"
+        >
+          Team Members
+        </p>
+        <h2
+          id="team-heading"
+          class="text-3xl font-black tracking-tight text-slate-900"
+        >
+          True Image Bass Team
+        </h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          teamMembers.map((member) => {
+            const bodyParagraphs = member.body.filter(
+              (paragraph) => paragraph.trim().length > 0,
+            );
+            const hasTeaser = member.teaser.trim().length > 0;
+            const hasBody = bodyParagraphs.length > 0;
 
-  #links a:hover {
-    color: rgb(78, 80, 86);
-  }
+            return (
+              <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:-translate-y-0.5 hover:shadow-md">
+                <Image
+                  src={member.photo}
+                  alt={member.name}
+                  class="aspect-square w-full object-cover"
+                  widths={[320, 480, 640]}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  loading="lazy"
+                  format="webp"
+                />
+                <div class="flex flex-1 flex-col px-4 py-3">
+                  <p class="text-sm font-semibold tracking-wide text-slate-800">
+                    {member.name}
+                  </p>
 
-  #links a svg {
-    height: 1em;
-    margin-left: 8px;
-  }
+                  {hasTeaser && (
+                    <p class="mt-2 text-sm leading-6 text-slate-700">
+                      {member.teaser}
+                    </p>
+                  )}
 
-  #links a.button {
-    color: white;
-    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-      inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 10px;
-  }
+                  {hasBody && (
+                    <details
+                      data-autocollapse-details
+                      class="mt-3 rounded-xl bg-white/70 p-3 open:bg-cyan-50/70"
+                    >
+                      <summary class="cursor-pointer text-sm font-semibold text-cyan-800 marker:text-cyan-700">
+                        Read more
+                      </summary>
+                      <div class="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+                        {bodyParagraphs.map((paragraph) => (
+                          <p>{paragraph}</p>
+                        ))}
+                      </div>
+                    </details>
+                  )}
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+    </section>
+  </div>
+</section>
 
-  #links a.button:hover {
-    color: rgb(230, 230, 230);
-    box-shadow: none;
-  }
+<script>
+  const detailsItems = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>(
+      "details[data-autocollapse-details]",
+    ),
+  );
 
-  pre {
-    font-family:
-      ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-      "DejaVu Sans Mono", monospace;
-    font-weight: normal;
-    background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0;
-  }
-
-  h2 {
-    margin: 0 0 1em;
-    font-weight: normal;
-    color: #111827;
-    font-size: 20px;
-  }
-
-  p {
-    color: #4b5563;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.006em;
-    margin: 0;
-  }
-
-  code {
-    display: inline-block;
-    background:
-      linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-      linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 6px 8px;
-  }
-
-  .box {
-    padding: 16px;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 16px;
-    border: 1px solid white;
-  }
-
-  #news {
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
-    max-width: 300px;
-    text-decoration: none;
-    transition: background 0.2s;
-    backdrop-filter: blur(50px);
-  }
-
-  #news:hover {
-    background: rgba(255, 255, 255, 0.55);
-  }
-
-  @media screen and (max-height: 368px) {
-    #news {
-      display: none;
+  const closeAllOpenDetails = () => {
+    for (const item of detailsItems) {
+      if (item.open) item.open = false;
     }
-  }
+  };
 
-  @media screen and (max-width: 768px) {
-    #container {
-      display: flex;
-      flex-direction: column;
-    }
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
 
-    #hero {
-      display: block;
-      padding-top: 10%;
-    }
-
-    #links {
-      flex-wrap: wrap;
-    }
-
-    #links a.button {
-      padding: 14px 18px;
-    }
-
-    #news {
-      right: 16px;
-      left: 16px;
-      bottom: 2.5rem;
-      max-width: 100%;
-    }
-
-    h1 {
-      line-height: 1.5;
-    }
-  }
-</style>
+    const clickedInsideDetails = target.closest(
+      "details[data-autocollapse-details]",
+    );
+    if (!clickedInsideDetails) closeAllOpenDetails();
+  });
+</script>

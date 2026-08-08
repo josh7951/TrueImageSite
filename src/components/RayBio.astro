@@ -1,0 +1,190 @@
+---
+import Image from "astro/components/Image.astro";
+import rayProfilePic from "../assets/Ray/13-raybigbass.png";
+import lakeIsabella from "../assets/Ray/Lake-Isabella.jpg";
+import lakeIsabellaTournament from "../assets/Ray/Lake-Isabella-Tournament.jpg";
+import mbaaSilverwood from "../assets/Ray/MBAA-Tourney-Silverwood.jpg";
+
+const galleryImages = [
+  {
+    src: lakeIsabella,
+    alt: "Ray Caldwell catching a bass fish at Lake Isabella",
+    title: "Ray Caldwell at Lake Isabella",
+  },
+  {
+    src: lakeIsabellaTournament,
+    alt: "Fishing team posing with awards at Lake Isabella tournament",
+    title: "Fishing Team posing with Awards",
+  },
+  {
+    src: mbaaSilverwood,
+    alt: "Bass fish caught at Silverwood MBAA tournament",
+    title: "Bass Caught at Silverwood MBAA Tournament",
+  },
+];
+---
+
+<section class="relative overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,116,144,0.14),transparent_48%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.12),transparent_42%)]"
+  >
+  </div>
+
+  <div
+    class="relative mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:gap-12 lg:px-8 lg:py-16"
+  >
+    <a
+      href="/"
+      class="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/70 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-900 transition hover:bg-cyan-100"
+      aria-label="Back to home page"
+    >
+      <span aria-hidden="true">&larr;</span>
+      Back to Home
+    </a>
+
+    <header
+      class="grid gap-8 rounded-3xl border border-white/60 bg-white/70 p-5 shadow-xl shadow-slate-900/5 backdrop-blur sm:p-7 md:grid-cols-[minmax(0,1fr)_300px] md:p-8"
+    >
+      <div class="space-y-5">
+        <p
+          class="inline-flex w-fit rounded-full bg-cyan-100 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.18em] text-cyan-800 uppercase"
+        >
+          About Ray Caldwell
+        </p>
+        <h1
+          class="text-3xl leading-tight font-black tracking-tight text-slate-900 sm:text-[2.6rem]"
+        >
+          Meet the Owner
+        </h1>
+        <p
+          class="max-w-2xl text-[1.02rem] leading-7 text-slate-700 sm:text-[1.08rem] sm:leading-8"
+        >
+          My name is Ray Caldwell, owner of True Image Enterprise. I am from
+          Longview, Texas, and I grew up fishing many lakes with my dad, D.C.
+          Caldwell.
+        </p>
+        <p
+          class="max-w-2xl text-[1.02rem] leading-7 text-slate-700 sm:text-[1.08rem] sm:leading-8"
+        >
+          Through military tournaments, years of western competition, and
+          mentorship from top anglers, I built a style focused on technique,
+          discipline, and consistency.
+        </p>
+      </div>
+
+      <div
+        class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-lg shadow-slate-900/10"
+      >
+        <Image
+          src={rayProfilePic}
+          alt="Ray Caldwell holding a bass fish"
+          title="Ray Caldwell"
+          class="h-full w-full object-cover"
+          widths={[320, 480, 640]}
+          sizes="(min-width: 768px) 280px, 100vw"
+          loading="eager"
+          format="webp"
+        />
+      </div>
+    </header>
+
+    <div class="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      {
+        galleryImages.map((image) => (
+          <figure class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md shadow-slate-900/5">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              title={image.title}
+              class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-60"
+              widths={[480, 720, 960]}
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              loading="eager"
+              format="webp"
+            />
+            <figcaption class="px-4 py-3 text-sm leading-6 font-medium tracking-wide text-slate-700">
+              {image.title}
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <article
+      class="mx-auto w-full max-w-5xl space-y-7 rounded-3xl border border-slate-200 bg-white/80 p-6 text-[1rem] leading-7 text-slate-700 shadow-xl shadow-slate-900/5 backdrop-blur sm:p-8 sm:text-[1.05rem] sm:leading-8 lg:p-10"
+    >
+      <p>
+        During my naval career, I fished as a non-boater in MBAA (Military Bass
+        Anglers Association) draw tournaments. Later, as a defense contract
+        worker, I moved west to Ridgecrest, California, and quickly learned it
+        was a different fishology.
+      </p>
+
+      <p>
+        A co-worker at the Naval Weapons Center, Jeff Stuart, invited me into
+        MBAA tournaments. My first event was in Yuma, Arizona, on the Colorado
+        River. I did not weigh a fish that day, but that moment shaped my
+        mindset and growth as an angler.
+      </p>
+
+      <div class="grid gap-6 lg:grid-cols-2 lg:gap-7">
+        <section class="rounded-2xl bg-slate-50 p-5 sm:p-6">
+          <h2
+            class="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl"
+          >
+            As a Director
+          </h2>
+          <p class="mt-3.5">
+            I received three Director Achievement Awards, including national
+            rankings in 1996 (7th of 10) and 1997 (3rd of 10). In 2000, I
+            received my third Director award and had the opportunity to direct
+            bass tournaments across five regions from 1998 to 2007.
+          </p>
+          <p class="mt-3.5">
+            I am a life member of BASS with the rare 30-year patch, a member of
+            the Association of B.A.S.S Professionals, and an active conservation
+            volunteer for Lake Isabella, Castaic, Pyramid, Casitas, and Cachuma.
+          </p>
+        </section>
+
+        <section class="rounded-2xl bg-cyan-50 p-5 sm:p-6">
+          <h2
+            class="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl"
+          >
+            As a Fisherman
+          </h2>
+          <p class="mt-3.5">
+            Highlights include 1st place at Yuma in December 2000 and 1st place
+            at Pyramid Lake in May 2000, along with big fish awards in both MBAA
+            tournaments.
+          </p>
+          <p class="mt-3.5">
+            I also earned one 2nd place finish, three 3rd place finishes, one
+            5th place finish, three 8th place finishes, and multiple top 10 and
+            top 20 placements. In 1997, I ranked 5th nationally among Navy
+            fishermen in MBAA programs.
+          </p>
+        </section>
+      </div>
+
+      <p>
+        Today, after retiring from Northrop Grumman Corporation, I remain the
+        humble owner of True Image Enterprise. I bring what I have learned from
+        top pro anglers and mentors into developing high-quality soft plastic
+        fishing baits for deep-water structure.
+      </p>
+
+      <div
+        class="h-px w-full bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent"
+      >
+      </div>
+      <p class="tracking-[0.01em] italic">Thank you and "keep a tight line."</p>
+      <p class="font-semibold tracking-wide">Sincerely,</p>
+      <p
+        class="text-2xl leading-none font-black tracking-[0.08em] text-slate-900"
+      >
+        Ray Caldwell
+      </p>
+    </article>
+  </div>
+</section>
